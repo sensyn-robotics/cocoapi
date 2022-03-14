@@ -8,7 +8,7 @@ from setuptools import Extension, setup
 # the Visual C++ 2015 build tools.
 # They can safely be removed.
 
-dist.Distribution().fetch_build_eggs(['cython>=0.27.3', 'numpy'])
+dist.Distribution().fetch_build_eggs(['cython>=0.27.3', 'numpy<1.20'])
 
 try:
     import numpy as np

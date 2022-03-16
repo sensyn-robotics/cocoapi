@@ -1,4 +1,4 @@
-import numpy as np
+from setuptools import dist  # Install numpy and cython at start
 from setuptools import Extension, setup
 
 # To compile and install locally run "python setup.py build_ext --inplace"
@@ -8,6 +8,13 @@ from setuptools import Extension, setup
 # the Visual C++ 2015 build tools.
 # They can safely be removed.
 
+dist.Distribution().fetch_build_eggs(['cython>=0.27.3', 'numpy<1.20'])
+
+try:
+    import numpy as np
+except ImportError:
+    exit('Please install numpy first.')
+    
 ext_modules = [
     Extension(
         'pycocotools._mask',
